@@ -1,10 +1,10 @@
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import clsx from "clsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// eslint-disable-next-line react/prop-types
 const AnimatedTitle = ({ title, containerClass }) => {
     const containerRef = useRef(null);
 
@@ -35,7 +35,7 @@ const AnimatedTitle = ({ title, containerClass }) => {
     }, []);
 
     return (
-        <div ref={containerRef} className={`animated-tile ${containerClass}`}>
+        <div ref={containerRef} className={clsx("animated-title", containerClass)}>
             {title.split("<br />").map((line, index) => (
                 <div
                     key={index}
